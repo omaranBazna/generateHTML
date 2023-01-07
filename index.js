@@ -1,7 +1,6 @@
 import inquirer from "inquirer";
 import fs from "fs";
-///some changes
-///some other changes
+
 inquirer
   .prompt([
     {
