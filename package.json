@@ -5,12 +5,17 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "blake",
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.4",
     "jest": "^29.3.1"
+  },
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-modules-commonjs"]
+    }
   }
 }

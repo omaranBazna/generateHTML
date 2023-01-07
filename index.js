@@ -1,98 +1,52 @@
 import inquirer from "inquirer";
 import fs from "fs";
+//import Manger from "./lib/Manger";
 
 inquirer
   .prompt([
     {
       type: "input",
-      name: "username",
-      message: "What is your Github Username?",
+      name: "mangername",
+      message: "what is manger name?",
     },
     {
       type: "input",
-      name: "email",
-      message: "What is your email?",
+      name: "mangerid",
+      message: "what is manger id?",
     },
     {
       type: "input",
-      name: "title",
-      message: "What is the project title?",
-    },
-    {
-      type: "input",
-      name: "description",
-      message: "What is the description of the project? ",
-    },
-    {
-      type: "input",
-      name: "installation",
-      message: "how to install the project?",
-    },
-    {
-      type: "input",
-      name: "usage",
-      message: "how to use the project?",
-    },
-    { type: "input", name: "credits", message: "what are the credits?" },
-    {
-      type: "rawlist",
-      name: "license",
-      message: "what is the license of your project?",
-      choices: [
-        "MIT License",
-        "Apache License",
-        "Eclipse License",
-        "Mozilla License",
-      ],
-    },
-    {
-      type: "input",
-      name: "features",
-      message: "what are the features of your project?",
-    },
-    {
-      type: "input",
-      name: "contribute",
-      message: "How to contribute?",
-    },
-    {
-      type: "input",
-      name: "Tests",
-      message: "Tests?",
+      name: "mangeremail",
+      message: "what is manger email?",
     },
   ])
   .then((answers) => {
+    /*
+    const manger = new Manger(
+      answers.mangername,
+      answers.mangerid,
+      answers.mangeremail
+    );
+    */
+
     fs.writeFileSync(
-      "README.MD",
-      `# ${answers.title}
-  ## Description
-  ${answers.description}
-  ##Table of content:
-  [installation](#installation).
-  [Usage](#usage).
-  [Questions](#questions).
-  [Credits](#credits).
-  [License](#license).
-  [Features](#features).
-  [Contribute](#contribute).
-  [Tests](#tests).
-  ## Installation
-  ${answers.installation}
-  ## Usage
-  ${answers.usage}
-  ## Questions
-  The link to the developer's github profile [${answers.username}](https://github.com/${answers.username}).
-  How to reach the developer for questions [${answers.email}](${answers.email}).
-  ## Credits
-  ${answers.credits}
-  ## License
-  ${answers.license}
-  ## Features
-  ${answers.features}
-  ## How to contribute
-  ${answers.contribute}
-  ## Tests
-  ${answers.Tests}
+      "dist/output.html",
+      `
+      <style>
+        .box{
+            background:blue;
+            border-radius:5px;
+            padding:15px;
+        }
+      </style>
+      <div class="box">
+      <h1>Manger</h1>
+     <h3>${answers.mangername} </h3>
+     <h3>${answers.mangerid}</h3>
+
+     <h3>${answers.mangeremail}</h3>
+     <div>
+
     `
     );
   })
