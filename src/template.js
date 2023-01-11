@@ -1,4 +1,5 @@
-<style>
+export const template = (manger, intern) => {
+  return `<style>
 header{
   height:100px;
   width:100%;
@@ -31,26 +32,34 @@ main{
  </header>
  <main >
  
- 
-<div class="card">
-   <div class="card-header">
-    <p> test</p>
-  <p>Manger</p>
-  </div>
-
-  <div class="card-body">
-  <ul>
-  <li>ID: 1</li>
-  <li>Email :test@gmail.com</li>
-  <li>Office Number:2</li>
-  </ul>
-
-  </div>
-
-</div>
-
+ ${mangerCard(manger)}
  
  </main>
 
 <body>
 
+`;
+};
+function mangerCard(manger) {
+  return `
+<div class="card">
+   <div class="card-header">
+    <p> ${manger.getName()}</p>
+  <p>Manger</p>
+  </div>
+
+  <div class="card-body">
+  <ul>
+  <li>ID: ${manger.getId()}</li>
+  <li>Email :<a href="mailTo:${manger.getEmail()}" >${manger.getEmail()}</a></li>
+  <li>Office Number:${manger.getOfficeNumber()}</li>
+  </ul>
+
+  </div>
+
+</div>
+`;
+}
+function internCard(intern) {}
+
+function engineerCard(engineer) {}

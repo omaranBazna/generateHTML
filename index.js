@@ -1,6 +1,9 @@
 import inquirer from "inquirer";
 import fs from "fs";
+import { template } from "./src/template.js";
 //import Manger from "./lib/Manger";
+import Manger from "./lib/Manger.js";
+//import { Intern } from "./lib/intern.js";
 
 inquirer
   .prompt([
@@ -11,44 +14,64 @@ inquirer
     },
     {
       type: "input",
-      name: "mangerid",
-      message: "what is manger id?",
-    },
-    {
-      type: "input",
       name: "mangeremail",
       message: "what is manger email?",
     },
+    {
+      type: "input",
+      name: "officenum",
+      message: "what is the office number of the manger?",
+    },
+
+    {
+      type: "input",
+      name: "engineername",
+      message: "what is the engineer name?",
+    },
+    {
+      type: "input",
+      name: "engineeremail",
+      message: "what is the engineer email?",
+    },
+
+    {
+      type: "input",
+      name: "engineergithub",
+      message: "what is the engineer github?",
+    },
+
+    {
+      type: "input",
+      name: "internname",
+      message: "what is the engineer name?",
+    },
+    {
+      type: "input",
+      name: "internemail",
+      message: "what is the intern email?",
+    },
+    {
+      type: "input",
+      name: "internschool",
+      message: "what is the school email?",
+    },
   ])
   .then((answers) => {
-    /*
     const manger = new Manger(
       answers.mangername,
-      answers.mangerid,
-      answers.mangeremail
+      1,
+      answers.mangeremail,
+      answers.officenum
     );
-    */
-
-    fs.writeFileSync(
-      "dist/output.html",
-      `
-      <style>
-        .box{
-            background:blue;
-            border-radius:5px;
-            padding:15px;
-        }
-      </style>
-      <div class="box">
-      <h1>Manger</h1>
-     <h3>${answers.mangername} </h3>
-     <h3>${answers.mangerid}</h3>
-
-     <h3>${answers.mangeremail}</h3>
-     <div>
-
-    `
+    /*
+    const intern = new Intern(
+      answers.internname,
+      3,
+      answers.internemail,
+      answers.internschool
     );
+*/
+    fs.writeFileSync("dist/output.html", template(manger));
   })
 
   .catch((error) => {

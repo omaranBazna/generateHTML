@@ -10,12 +10,25 @@
   "author": "blake",
   "license": "ISC",
   "dependencies": {
+    "babel-jest": "^29.3.1",
     "inquirer": "^8.2.4",
-    "jest": "^29.3.1"
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3"
   },
   "env": {
-    "test": {
-      "plugins": ["@babel/plugin-transform-modules-commonjs"]
-    }
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "jest": {
+      "testMatch": [
+        "<rootDir>/**/**"
+      ]
+    },
+    "es6": true
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@jest/globals": "^29.3.1"
   }
 }

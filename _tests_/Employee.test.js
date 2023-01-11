@@ -1,5 +1,5 @@
-import { Employee } from "../lib/Employee";
-
+import { Employee } from "../lib/Employee.js";
+import { expect, test } from "@jest/globals";
 const employee = new Employee("james", 1, "james@gmail.com");
 
 test("Test#1 testing getName", () => {
