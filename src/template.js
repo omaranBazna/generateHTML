@@ -1,4 +1,4 @@
-export const template = (manger, intern) => {
+const template = (manger, intern) => {
   return `<style>
 header{
   height:100px;
@@ -63,3 +63,4 @@ function mangerCard(manger) {
 function internCard(intern) {}
 
 function engineerCard(engineer) {}
+module.exports = template;

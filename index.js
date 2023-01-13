@@ -1,8 +1,8 @@
-import inquirer from "inquirer";
-import fs from "fs";
-import { template } from "./src/template.js";
+const inquirer = require("inquirer");
+const fs = require("fs");
+const template = require("./src/template.js");
 //import Manger from "./lib/Manger";
-import Manger from "./lib/Manger.js";
+const Manger = require("./lib/Manger.js");
 //import { Intern } from "./lib/intern.js";
 
 inquirer
